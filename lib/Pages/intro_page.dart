@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medicai/Pages/login_page.dart';
+import 'package:front_end_medicai/Pages/login_page.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
