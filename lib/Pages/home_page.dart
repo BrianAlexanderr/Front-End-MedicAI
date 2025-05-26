@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:medicai/Pages/login_page.dart';
-import 'package:medicai/Pages/diagnosa_page.dart';
+import 'package:front_end_medicai/Pages/login_page.dart';
+import 'package:front_end_medicai/Pages/diagnosa_page.dart';
 
 class HomePage extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;

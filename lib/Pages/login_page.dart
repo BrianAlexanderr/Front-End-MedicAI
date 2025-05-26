@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medicai/Pages/register_page.dart';
+import 'package:front_end_medicai/Pages/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:medicai/Pages/home_page.dart';
+import 'package:front_end_medicai/Pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override

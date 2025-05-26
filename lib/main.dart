@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medicai/Pages/intro_page.dart';
+import 'package:front_end_medicai/Pages/intro_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 
@@ -11,6 +11,8 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  
 
   // This widget is the root of your application.
   @override
