@@ -44,7 +44,7 @@ class _IntroPageState extends State<IntroPage> {
               bottom: 30,
               top: 200,
             ),
-            child: Image.asset('lib/Assets/Component 1.png'),
+            child: Image.asset('assets/Component 1.png'),
           ),
           Padding(
             padding: const EdgeInsets.all(24.0),

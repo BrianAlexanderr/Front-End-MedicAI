@@ -113,7 +113,7 @@ class HomePage extends StatelessWidget {
                         Container(
                           height: 40,
                           width: 40,
-                          child: Image.asset('lib/Assets/Vector.png'),
+                          child: Image.asset('assets/Vector.png'),
                         ),
                         const SizedBox(width: 8),
                         const Text(
@@ -182,19 +182,19 @@ class HomePage extends StatelessWidget {
                       children: [
                         _buildHealthMetric(
                           'Blood Glucose Level',
-                          'lib/Assets/image 1.png',
+                          'assets/image 1.png',
                         ),
                         _buildHealthMetric(
                           'Blood Pressure',
-                          'lib/Assets/image 2.png',
+                          'assets/image 2.png',
                         ),
                         _buildHealthMetric(
                           'Cholestrol',
-                          'lib/Assets/image 3.png',
+                          'assets/image 3.png',
                         ),
                         _buildHealthMetric(
                           'Uric Acid',
-                          'lib/Assets/image 5.png',
+                          'assets/image 5.png',
                         ),
                       ],
                     ),
@@ -264,7 +264,7 @@ class HomePage extends StatelessWidget {
                         Container(
                           width: 70,
                           height: 70,
-                          child: Image.asset('lib/Assets/Frame 9.png'),
+                          child: Image.asset('assets/Frame 9.png'),
                         ),
                       ],
                     ),
@@ -279,7 +279,7 @@ class HomePage extends StatelessWidget {
                         Container(
                           width: 70,
                           height: 70,
-                          child: Image.asset('lib/Assets/Group 44.png'),
+                          child: Image.asset('assets/Group 44.png'),
                         ),
 
                         // Contact Dokter button
