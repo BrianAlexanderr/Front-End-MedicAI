@@ -1,4 +1,4 @@
-# flutter_project
+# medicai
 
 A new Flutter project.
 

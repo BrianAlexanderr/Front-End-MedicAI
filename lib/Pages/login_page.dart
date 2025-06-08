@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:front_end_medicai/Pages/register_page.dart';
+import 'package:medicai/Pages/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:front_end_medicai/Pages/home_page.dart';
+import 'package:medicai/Pages/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 80.0, right: 80, bottom: 30),
-                child: Image.asset('assets/Logo.png', height: 150),
+                child: Image.asset('lib/Assets/Logo.png', height: 150),
               ),
               Text(
                 "Sign In",

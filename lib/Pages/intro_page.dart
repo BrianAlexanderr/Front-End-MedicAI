@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:front_end_medicai/Pages/login_page.dart';
+import 'package:medicai/Pages/login_page.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -13,8 +13,8 @@ class _IntroPageState extends State<IntroPage> {
   void initState() {
     super.initState();
 
-    // Redirect after 1 seconds
-    Future.delayed(Duration(seconds: 3), () {
+
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(_fadeRoute(LoginPage()));
     });
   }
@@ -22,7 +22,7 @@ class _IntroPageState extends State<IntroPage> {
   //Fade Animation
   PageRouteBuilder _fadeRoute(Widget page) {
     return PageRouteBuilder(
-      transitionDuration: Duration(milliseconds: 400),
+      transitionDuration: Duration(milliseconds: 600),
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return FadeTransition(opacity: animation, child: child);
@@ -44,7 +44,7 @@ class _IntroPageState extends State<IntroPage> {
               bottom: 30,
               top: 200,
             ),
-            child: Image.asset('assets/Component 1.png'),
+            child: Image.asset('lib/Assets/Component 1.png'),
           ),
           Padding(
             padding: const EdgeInsets.all(24.0),

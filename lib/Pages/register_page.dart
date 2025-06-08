@@ -55,20 +55,34 @@ class _RegisterPageState extends State<RegisterPage> {
           "role": role,
         };
 
+        await http.post(
+          Uri.parse(
+            'http://192.168.0.70:8000/api/register/',
+          ),
+          headers: {"Content-Type": "application/json"},
+          body: jsonEncode({
+            "user_id": userCredential.user!.uid,
+            "name": _fullnameController.text.trim(),
+            "email": _emailController.text.trim(),
+            "age": _age,
+            "gender": _selectedGender,
+          }),
+        );
+
         await _firestore
             .collection("users")
             .doc(userCredential.user!.uid)
             .set(userData);
 
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text("Account Created!")));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Account Created!")),
+        );
 
         Navigator.pop(context); // Go back to login page
       } catch (e) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text("Error: $e")));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Error: $e")),
+        );
       }
     }
   }
@@ -76,8 +90,7 @@ class _RegisterPageState extends State<RegisterPage> {
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) return 'Please enter your email';
     final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-    if (!emailRegex.hasMatch(value))
-      return 'Please enter a valid email address';
+    if (!emailRegex.hasMatch(value)) return 'Please enter a valid email address';
     return null;
   }
 
@@ -93,8 +106,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   String? _validateDob(String? value) {
-    if (value == null || value.isEmpty)
-      return 'Please select your date of birth';
+    if (value == null || value.isEmpty) return 'Please select your date of birth';
     return null;
   }
 
@@ -105,12 +117,11 @@ class _RegisterPageState extends State<RegisterPage> {
         padding: EdgeInsets.all(20.0),
         child: Form(
           key: _formKey, // Assign the form key here
-          autovalidateMode:
-              AutovalidateMode.onUserInteraction, // real-time validation
+          autovalidateMode: AutovalidateMode.onUserInteraction, // real-time validation
           child: ListView(
             shrinkWrap: true,
             children: [
-              Image.asset('assets/Logo.png', height: 90),
+              Image.asset('lib/Assets/Logo.png', height: 90),
               SizedBox(height: 10),
               Text(
                 "Create Account",
@@ -168,15 +179,14 @@ class _RegisterPageState extends State<RegisterPage> {
                     _selectedGender = newValue!;
                   });
                 },
-                items:
-                    ['Laki-laki', 'Perempuan']
-                        .map(
-                          (gender) => DropdownMenuItem(
-                            value: gender,
-                            child: Text(gender),
-                          ),
-                        )
-                        .toList(),
+                items: ['Laki-laki', 'Perempuan']
+                    .map(
+                      (gender) => DropdownMenuItem(
+                        value: gender,
+                        child: Text(gender),
+                      ),
+                    )
+                    .toList(),
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.grey[200],
@@ -236,10 +246,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 child: Text(
                   "Sign Up",
-                  style: TextStyle(
-                    fontFamily: 'BreeSerif',
-                    color: Colors.white,
-                  ),
+                  style: TextStyle(fontFamily: 'BreeSerif', color: Colors.white),
                 ),
               ),
             ],
@@ -249,3 +256,5 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
+
+
