@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:front_end_medicai/Pages/login_page.dart';
 import 'package:front_end_medicai/Pages/diagnosa_page.dart';
+import 'package:front_end_medicai/Pages/ariticle_detail_page.dart';
+import 'package:front_end_medicai/Pages/article_list_page.dart';
+import 'package:front_end_medicai/Pages/contact_list.dart';
 
 class HomePage extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -275,56 +278,64 @@ class HomePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // Chat bubble icon
+                        // Icon chat bubble
                         Container(
                           width: 70,
                           height: 70,
                           child: Image.asset('assets/Group 44.png'),
                         ),
 
-                        // Contact Dokter button
-                        Container(
-                          width: 220,
-                          height: 140,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFF8DE4B5),
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20),
+                        // Contact Dokter button (ini yang dibungkus GestureDetector)
+                        GestureDetector(
+                          onTap: () {
+                            // Navigasi ke halaman contact list dokter
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ContactListPage()),
+                            );
+                          },
+                          child: Container(
+                            width: 220,
+                            height: 140,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFF8DE4B5),
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(16.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Contact',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'BreeSerif',
+                            child: const Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Contact',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'BreeSerif',
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  'Dokter',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'BreeSerif',
+                                  Text(
+                                    'Dokter',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'BreeSerif',
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ],
                     ),
 
-                    const SizedBox(height: 40),
 
                     // Nearest Hospital section
                     const Text(
@@ -372,7 +383,12 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const ArticleListPage()),
+                            );
+                          },
                           child: const Text(
                             'View More',
                             style: TextStyle(
@@ -387,26 +403,49 @@ class HomePage extends StatelessWidget {
                     const SizedBox(height: 16),
 
                     // Article cards
-                    Container(
-                      height: 100,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(8),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ArticleDetailPage(
+                              title: 'Manfaat Makan Sehat',
+                              content: 'Isi artikel tentang manfaat makan sehat...',
+                            ),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        margin: const EdgeInsets.only(bottom: 12),
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.asset(
+                                'assets/artikel 1.jpeg',
+                                width: 80,
+                                height: 80,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                'Manfaat Makan Sehat',
+                                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
 
-                    const SizedBox(height: 16),
-
-                    Container(
-                      height: 100,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
                   ],
                 ),
               ),
