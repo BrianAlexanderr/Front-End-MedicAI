@@ -43,3 +43,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# In case Firebase config is in a JSON file
+android/app/google-services.json
+
+lib/Assets/.env
+
